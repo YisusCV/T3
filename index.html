@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Operación Extracción: Sobrevive al apocalipsis</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Mira central -->
+    <div id="crosshair">+</div>
+
+    <!-- Salud y Munición -->
+    <div id="hud">Salud: 100 | Munición: 15 / 15</div>
+
+    <!-- Barras de vida de los zombis -->
+    <div id="zombie-health-container"></div>
+
+    <!-- Pantalla de Victoria -->
+    <!-- Seleccion Modo Dificil -->
+    <div id="pantalla-victoria" class="pantalla-fin oculto">
+        <h1>¡MISIÓN COMPLETADA!</h1>
+        <p>Has llegado a la zona de extracción.</p>
+        <div class="menu-botones-fin">
+            <button onclick="reiniciarConDificultad('normal')">Jugar Normal</button>
+            <button onclick="reiniciarConDificultad('dificil')" class="boton-dificil">Modo Difícil 💀</button>
+        </div>
+    </div>
+
+    <!-- Pantalla de Game Over -->
+    <div id="pantalla-gameover" class="pantalla-fin oculto">
+        <h1 class="texto-rojo">GAME OVER</h1>
+        <p>Los zombis te han atrapado.</p>
+        <div class="menu-botones-fin">
+            <button onclick="reiniciarConDificultad('normal')">Reintentar Normal</button>
+            <button onclick="reiniciarConDificultad('dificil')" class="boton-dificil">Reintentar Difícil 💀</button>
+        </div>
+    </div>
+
+    <!-- Selector visual de armas con iconos -->
+    <div id="weapon-hud">
+        <div id="slot-1" class="weapon-slot active">
+            <span class="key-badge">1</span>
+            <svg class="weapon-icon" viewBox="0 0 64 32" fill="currentColor">
+                <path d="M4 6h48v8H24v12H12V14H4V6zm48 2h8v4h-8V8z"/>
+            </svg>
+            <span class="weapon-name">Pistola</span>
+        </div>
+
+        <div id="slot-2" class="weapon-slot">
+            <span class="key-badge">2</span>
+            <svg class="weapon-icon" viewBox="0 0 64 32" fill="currentColor">
+                <path d="M2 10h58v5H32v4h-8v-4H14v9H4V15H2v-5z"/>
+            </svg>
+            <span class="weapon-name">Escopeta</span>
+        </div>
+    </div>
+
+    <!-- Importación de Three.js y complementos por CDN -->
+    <script type="importmap">
+        {
+            "imports": {
+                "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
+                "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/"
+            }
+        }
+    </script>
+    <script type="module" src="main.js"></script>
+</body>
+</html>
